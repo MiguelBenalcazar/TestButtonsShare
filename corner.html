@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button in the Corner</title>
+    <link rel="stylesheet" href="./common/fontawesome/css/all.min.css">
+    <style>
+        body {
+            background-color: rgb(59, 36, 34);
+        }
+
+        .menu {
+            position: relative;
+        }
+
+        .menu span {
+            position: absolute;
+            background-color: black;
+            padding: 15px 10px;
+            border: 3px solid white;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu span.hidden {
+            visibility: hidden;
+        }
+
+        .menu span:last-child {
+            padding: 13px 15px;
+        }
+
+        .menu span:nth-child(1) {
+            background-color: lightblue;
+            padding: 15px 15px;
+        }
+
+        .menu span:nth-child(1).show {
+            transform: rotate(0deg) translate(100px) rotate(0deg);
+        }
+
+        .menu span:nth-child(2) {
+            background-color: darkblue;
+        }
+
+        .menu span:nth-child(2).show {
+            transform: rotate(45deg) translate(100px) rotate(-45deg);
+        }
+
+        .menu span:nth-child(3) {
+            background-color: red;
+        }
+
+        .menu span:nth-child(3).show {
+            transform: rotate(90deg) translate(100px) rotate(-90deg);
+        }
+
+
+        /* &.show  &:nth-child(2) background-color: darkblue &.show transform: rotate(45deg) translate(100px) rotate(-45deg) &:nth-child(3) background-color: red &.show transform: rotate(90deg) translate(100px) rotate(-90deg) */
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <span class="fab fa-twitter fa-2x fa-inverse f-fw hidden"></span>
+        <span class="fab fa-facebook fa-2x fa-inverse fa-fw hidden"></span>
+        <span class="fab fa-pinterest fa-2x fa-inverse fa-fw hidden"></span>
+        <span class="fa fa-bars fa-2x fa-inverse f-fw"></span>
+    </div>
+    <script src="./common/jquery/jquery.min.js"></script>
+    <script src="./common/bootstrap/bootstrap.bundle.min.js"></script>
+    <script>
+        $('.menu span:last-child').click(function () {
+            $('.menu span').not(':last-child').toggleClass('hidden show');
+        })
+    </script>
+</body>
+
+</html>
